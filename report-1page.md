@@ -17,7 +17,7 @@
 **Assets:**
 - Student grade database
 - Login credentials
-- 
+
 
 **CIA mapping:**
 - Sự cố A -> Confidentiality (lộ điểm sinh viên cho người không có quyền)
