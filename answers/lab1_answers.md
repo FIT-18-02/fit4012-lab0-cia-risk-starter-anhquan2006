@@ -3,40 +3,52 @@
 
 **Họ và tên:** Phạm Anh Quân
 
-**MSSV:** 1871020471
+**MSSV:** 1871020523
 
-**Lớp/Nhóm:** CNTT18-02
+**Lớp/Nhóm:** CNTT 18-02
 
+---
 
 ## 1. Assets
 Liệt kê ít nhất 2 assets cần bảo vệ.
 
-- Asset 1: Dữ liệu điểm số sinh viên
-- Asset 2: Thông tin tài khoản đăng nhập
-- Asset 3 (nếu có): Hệ thống quản lý điểm
+- Asset 1: Cơ sở dữ liệu điểm sinh viên
+- Asset 2: Tài khoản đăng nhập của giảng viên và sinh viên
+- Asset 3: Cơ sở dữ liệu hệ thống
 
+---
 
 ## 2. Mapping CIA
 Ghép từng sự cố với CIA.
 
-- Sự cố A -> Ảnh hưởng đến khả năng truy cập hệ thống(Availability)
-- Sự cố B -> Làm sai lệch dữ liệu(Integrity)
-- Sự cố C -> Rò rỉ thông tin nhạy cảm(Confidentiality)
+- Sự cố A -> Confidentiality
+- Sự cố B -> Integrity
+- Sự cố C -> Availability
 
+---
 
 ## 3. Phân tích sự cố B
-- Threat: Kẻ tấn công xâm nhập và thay đổi dữ liệu
-- Vulnerability: Hệ thống bảo mật yếu, mật khẩu dễ đoán
-- Mitigation: Áp dụng xác thực nhiều lớp (MFA) và kiểm soát quyền chỉnh sửa dữ liệu
+- Threat: Hacker hoặc người dùng nội bộ chỉnh sửa điểm trái phép
+- Vulnerability: - Không kiểm tra phân quyền chặt chẽ
+    - Không có cơ chế log hoặc xác thực thay đổi dữ liệu
+- Mitigation:
+    - Áp dụng phân quyền (Role-based access control)
+    - Ghi log tất cả thay đổi dữ liệu
+    - Sử dụng xác thực 2 lớp (2FA)
+    - Mã hóa và kiểm tra tính toàn vẹn dữ liệu
 
+---
 
 ## 4. Reflection
-Viết 5-7 dòng.
 
-Nếu ở vai trò quản trị hệ thống, em sẽ tập trung đảm bảo tính toàn vẹn của dữ liệu trước tiên. Việc điểm số bị thay đổi sai lệch có thể gây hậu quả nghiêm trọng đến sinh viên cũng như độ tin cậy của hệ thống. Để giảm thiểu rủi ro, em sẽ tăng cường các biện pháp bảo mật như xác thực đa yếu tố, phân quyền chi tiết theo vai trò và theo dõi nhật ký hệ thống. Ngoài ra, việc thiết lập quy trình kiểm duyệt khi chỉnh sửa điểm cũng rất cần thiết. Sau khi đảm bảo dữ liệu an toàn, em sẽ tiếp tục cải thiện hiệu suất và độ ổn định của hệ thống.
+Qua bài lab này, em hiểu rõ hơn về mô hình CIA trong an ninh thông tin và cách áp dụng vào hệ thống thực tế. Việc xác định assets giúp nhận diện những gì cần bảo vệ quan trọng nhất. Khi phân tích các sự cố theo CIA, em thấy rõ mỗi loại tấn công sẽ ảnh hưởng đến khía cạnh khác nhau của hệ thống. Đặc biệt, việc tìm ra threat, vulnerability và mitigation giúp em hiểu cách hệ thống bị tấn công và cách phòng chống. Điều này rất hữu ích trong việc thiết kế hệ thống an toàn hơn trong tương lai.
 
+---
 
 ## 5. Bonus Flag
-`FIT4012{A-?-B-?-C-?}`
-Flag của em:
-FIT4012{A-AV-B-IN-C-CO}
+
+- A → Confidentiality (C)
+- B → Integrity (I)
+- C → Availability (A)
+
+Flag của em: FIT4012{A-C-B-I-C-A}
